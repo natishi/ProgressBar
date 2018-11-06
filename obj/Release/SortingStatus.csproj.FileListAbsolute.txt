@@ -1,0 +1,16 @@
+C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Release\SortingStatus.exe.config
+C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Release\SortingStatus.exe
+C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Release\SortingStatus.pdb
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\MainWindow.g.cs
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\UCPrgBar.g.cs
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\App.g.cs
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\SortingStatus_MarkupCompile.cache
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\SortingStatus_MarkupCompile.lref
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\MainWindow.baml
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\UCPrgBar.baml
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\SortingStatus.g.resources
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\SortingStatus.Properties.Resources.resources
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\SortingStatus.csproj.GenerateResource.Cache
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\SortingStatus.exe
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\SortingStatus.pdb

@@ -1,0 +1,17 @@
+C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Debug\SortingStatus.exe.config
+C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Debug\SortingStatus.exe
+C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Debug\SortingStatus.pdb
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\MainWindow.g.cs
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\UCPrgBar.g.cs
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\App.g.cs
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\SortingStatus_MarkupCompile.cache
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\SortingStatus_MarkupCompile.lref
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\MainWindow.baml
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\UCPrgBar.baml
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\SortingStatus.g.resources
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\SortingStatus.Properties.Resources.resources
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\SortingStatus.csproj.GenerateResource.Cache
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\SortingStatus.exe
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\SortingStatus.pdb
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Debug\SortingStatus.csprojResolveAssemblyReference.cache
