@@ -1,7 +1,6 @@
-﻿using ProgressBar;
+﻿using Delay;
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO.Pipes;
 using System.Text;
 using System.Windows;
@@ -17,6 +16,7 @@ namespace SortingStatus
         public BackgroundWorker backgroundWorker = new BackgroundWorker();
         public ComponentResolution cr = new ComponentResolution();
         WndProperties wp;
+        public static bool topMost = false;
 
         public UCPrgBar()
         {
@@ -56,7 +56,8 @@ namespace SortingStatus
                 wp.Y = Convert.ToInt16(location[1]);
                 cr.PbValue = (int)((pass / general) * 100);
                 backgroundWorker.ReportProgress(cr.PbValue);
-                cr.Progress = pass > general ?  $"? {pass}/{general} ?" : $"{pass}/{general}";
+                cr.Progress = pass > general ? $"? {pass}/{general} ?" : $"{pass}/{general}";
+                MinimizeToTray.SetToolTip(cr.Progress);
                 ShowMainWindow();
             }
             while (cr.PbValue != 100);
@@ -114,14 +115,19 @@ namespace SortingStatus
         {
            MainWindow.main.Dispatcher.Invoke(new Action(delegate ()
             {
-                MainWindow.main.Visibility = Visibility.Hidden;
+                ///MainWindow.main.Visibility = Visibility.Hidden;
+                MainWindow.main.ShowInTaskbar = true;
+                MainWindow.main.WindowState = WindowState.Minimized;
+                MainWindow.main.ShowInTaskbar = false;
             }));
         }
         private void ShowMainWindow()
         {
             MainWindow.main.Dispatcher.Invoke(new Action(delegate ()
             {
-                MainWindow.main.Visibility = Visibility.Visible;
+               // MainWindow.main.Visibility = Visibility.Visible;
+                MainWindow.main.WindowState = WindowState.Normal;
+               
             }));
         }
 
@@ -130,12 +136,14 @@ namespace SortingStatus
             MainWindow.main.Dispatcher.Invoke(new Action(delegate ()
             {
                 MainWindow.main.Topmost = true;
+                topMost = true;
             }));
         }
 
         private void cbTopMost_Unchecked(object sender, RoutedEventArgs e)
         {
             MainWindow.main.Topmost = false;
+            topMost = false;
         }
     }
 }

@@ -25,9 +25,9 @@ namespace SortingStatus
         {
             Ratio = Convert.ToDouble(ConfigurationManager.AppSettings["Ratio"]);
             PbColor = ConfigurationManager.AppSettings["PbColor"];
-            Progress = $"0/?";
             PbValue = 0;
             WindowHeader = ConfigurationManager.AppSettings["WindowHeader"];
+            Progress = $"0/?";
             beep = Convert.ToBoolean(ConfigurationManager.AppSettings["BeepSound"]);
         }
 

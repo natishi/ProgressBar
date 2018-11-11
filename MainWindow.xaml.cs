@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Delay;
+using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
@@ -32,5 +33,11 @@ namespace SortingStatus
         {
             DragMove();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            MinimizeToTray.Enable(this);
+        }
+
     }
 }

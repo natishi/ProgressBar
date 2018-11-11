@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:app="clr-namespace:SortingStatus"
         mc:Ignorable="d" ShowInTaskbar="False"  ResizeMode="NoResize" MouseLeftButtonDown="wndProgress_MouseLeftButtonDown"    
-        AllowsTransparency="True" WindowStyle="None" Background="Transparent"
+        AllowsTransparency="True" WindowStyle="None" Background="Transparent" Icon="pbicon.ico"
+        Title="{Binding Title}"
         Opacity="{Binding Opacity}"
         Height="{Binding WndHeight, Mode=TwoWay}" 
         Width="{Binding WndWidth, Mode=TwoWay}"
         Left="{Binding X, Mode=TwoWay}"
         Top="{Binding Y, Mode=TwoWay}"
-        Visibility="{Binding Show, Mode=OneWay}" >
+        Visibility="{Binding Show, Mode=OneWay}" Loaded="Window_Loaded" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

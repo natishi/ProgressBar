@@ -17,6 +17,7 @@ namespace SortingStatus
         private double ratio;
         private string wndBackground;
         private double opacity;
+        private string title;
 
         private string show;
         private  int x;
@@ -38,6 +39,7 @@ namespace SortingStatus
             X = Convert.ToInt16(coordination[0]);
             Y = Convert.ToInt16(coordination[1]);
             Show = Convert.ToBoolean(ConfigurationManager.AppSettings["ShowProgressBar"]) == true ? "Visible" : "Hidden";
+            Title = ConfigurationManager.AppSettings["WindowHeader"];
         }
 
         public double Opacity
@@ -120,6 +122,19 @@ namespace SortingStatus
                 show = value;
                 NotifyPropertyChanged("Show");
                 Trace.WriteLine($"Show = {show}");
+            }
+        }
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+            set
+            {
+                title = value;
+                NotifyPropertyChanged("Title");
+                Trace.WriteLine($"Title = {title}");
             }
         }
         private volatile bool updlocation = false;
