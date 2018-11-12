@@ -36,13 +36,12 @@
             </Viewbox>
         </-->
         <Grid Margin="1,5,1,5" Grid.Row="2" >
-            <ProgressBar Name="progressBar" Margin="0"   Value="0" Foreground="{Binding PbColor, Mode=TwoWay}"  Minimum="0"/>
-            <!--TextBlock Text="{Binding ElementName=progressBar, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" /-->
+            <ProgressBar Name="progressBar" Margin="0"   Value="0" Foreground="{Binding PbColor, Mode=TwoWay}"  Minimum="0" />
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Run Text="{Binding WindowHeader}" FontWeight="Bold"></Run>
-                <Run Text="{Binding Progress, Mode=TwoWay}"></Run>
+                <Run Text="{Binding WindowHeader}"></Run>
+                <Run Text="{Binding ElementName=progressBar, Path=Value, StringFormat={}{0:0}%}"></Run>      
                 <Run Text=" - "></Run>
-                <Run Text="{Binding ElementName=progressBar, Path=Value, StringFormat={}{0:0}%}"></Run>
+                <Run Text="{Binding Progress, Mode=TwoWay}" FontWeight="Bold"></Run>
             </TextBlock>
         </Grid>
     </Grid>

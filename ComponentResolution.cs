@@ -7,7 +7,6 @@ namespace SortingStatus
 {
     public class  ComponentResolution : INotifyPropertyChanged
     {
-        private static double ratio;
         private string pbColor;
         private string progress;
         private int pbValue;
@@ -23,7 +22,6 @@ namespace SortingStatus
 
         public ComponentResolution()
         {
-            Ratio = Convert.ToDouble(ConfigurationManager.AppSettings["Ratio"]);
             PbColor = ConfigurationManager.AppSettings["PbColor"];
             PbValue = 0;
             WindowHeader = ConfigurationManager.AppSettings["WindowHeader"];
@@ -31,20 +29,6 @@ namespace SortingStatus
             beep = Convert.ToBoolean(ConfigurationManager.AppSettings["BeepSound"]);
         }
 
-        public  double Ratio
-        {
-            get
-            {
-                return ratio;
-            }
-            set
-            {
-                double valid = value <= 0 || value > 1 ? 1 : value;
-                ratio = valid;
-                NotifyPropertyChanged("Ratio");
-                Trace.WriteLine($"Ratio = {ratio}");
-            }
-        }
         public string PbColor
         {
             get

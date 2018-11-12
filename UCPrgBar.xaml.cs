@@ -1,6 +1,7 @@
 ﻿using Delay;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO.Pipes;
 using System.Text;
 using System.Windows;
@@ -27,10 +28,12 @@ namespace SortingStatus
             backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
             DataContext = cr;    
         }
+
         public void SetWndDataContext(WndProperties wp)
         {
             this.wp = wp;
         }
+
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             backgroundWorker.RunWorkerAsync();
@@ -106,6 +109,7 @@ namespace SortingStatus
             }
             catch(Exception e)
             {
+                Trace.WriteLine($"Error in ReceiveSingleMessageFromClient: {e.Message}");
                 message = "";
             }
             return message;
@@ -121,6 +125,7 @@ namespace SortingStatus
                 MainWindow.main.ShowInTaskbar = false;
             }));
         }
+
         private void ShowMainWindow()
         {
             MainWindow.main.Dispatcher.Invoke(new Action(delegate ()

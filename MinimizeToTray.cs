@@ -63,9 +63,7 @@ namespace Delay
                 {
                     // Initialize NotifyIcon instance "on demand"
                     _notifyIcon = new NotifyIcon();
-                    //string dir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-                    //string iconPath = dir + $@"\pbicon.ico";
-                    _notifyIcon.Icon = Icon.ExtractAssociatedIcon(Assembly.GetEntryAssembly().Location);//new Icon(iconPath);
+                    _notifyIcon.Icon = Icon.ExtractAssociatedIcon(Assembly.GetEntryAssembly().Location);
                     _notifyIcon.MouseClick += new MouseEventHandler(HandleNotifyIconOrBalloonClicked);
                     _notifyIcon.BalloonTipClicked += new EventHandler(HandleNotifyIconOrBalloonClicked);
                     _notifyIcon.Click += new EventHandler(_notifyIcon_Click);

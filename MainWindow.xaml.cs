@@ -38,6 +38,5 @@ namespace SortingStatus
         {
             MinimizeToTray.Enable(this);
         }
-
-    }
+   }
 }

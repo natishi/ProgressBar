@@ -2,42 +2,45 @@
 using System.ComponentModel;
 using System.Configuration;
 using System.Diagnostics;
-using System.Windows.Forms;
 
 
 namespace SortingStatus
 {
     public class WndProperties : INotifyPropertyChanged
     {
-        private int _MonitorWidth = SystemInformation.VirtualScreen.Width;
-        private int _MonitorHeight = SystemInformation.VirtualScreen.Height; 
+        private double _MonitorWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+        private double _MonitorHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
 
         private double wndWidth;
         private double wndHeight;
-        private double ratio;
+        private double ratioWidth;
+        private double ratioHeight;
         private string wndBackground;
         private double opacity;
         private string title;
 
         private string show;
-        private  int x;
-        private  int y;
+        private  double x;
+        private double y;
 
                
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+
         public WndProperties()
         {
-            Ratio = Convert.ToDouble(ConfigurationManager.AppSettings["Ratio"]);
+            RatioWidth = Convert.ToDouble(ConfigurationManager.AppSettings["RatioWidth"]);
+            RatioHeight = Convert.ToDouble(ConfigurationManager.AppSettings["RatioHeight"]);
             WndBackground = ConfigurationManager.AppSettings["WndBackground"];
             Opacity = Convert.ToDouble(ConfigurationManager.AppSettings["Opacity"]);
             string[] coordination = ConfigurationManager.AppSettings["Location"].Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
-            X = Convert.ToInt16(coordination[0]);
-            Y = Convert.ToInt16(coordination[1]);
+            X = Convert.ToDouble(coordination[0]);
+            Y = Convert.ToDouble(coordination[1]);
             Show = Convert.ToBoolean(ConfigurationManager.AppSettings["ShowProgressBar"]) == true ? "Visible" : "Hidden";
             Title = ConfigurationManager.AppSettings["WindowHeader"];
         }
@@ -56,6 +59,7 @@ namespace SortingStatus
                 Trace.WriteLine($"Opacity = {opacity}");
             }
         }
+
         public double WndHeight
         {
             get
@@ -69,6 +73,7 @@ namespace SortingStatus
                 Trace.WriteLine($"WndHeight = {wndHeight}");
             }
         }
+
         public double WndWidth
         {
             get
@@ -82,22 +87,37 @@ namespace SortingStatus
                 Trace.WriteLine($"WndWidth = {wndWidth}");
             }
         }
-        public double Ratio
+
+        public double RatioWidth
         {
             get
             {
-                return ratio;
+                return ratioWidth;
             }
             set
             {
                 double valid = value <= 0 || value > 1 ? 1 : value;
-                ratio = valid;
-                WndWidth = _MonitorWidth * ratio;//System.Windows.SystemParameters.PrimaryScreenWidth * ratio;
-                WndHeight = _MonitorHeight * ratio;//System.Windows.SystemParameters.PrimaryScreenHeight * ratio;
-                NotifyPropertyChanged("Ratio");
-                Trace.WriteLine($"Ratio = {ratio}");
+                ratioWidth = valid;
+                WndWidth = _MonitorWidth * ratioWidth;
+                Trace.WriteLine($"RatioWidth = {ratioWidth}");
             }
         }
+
+        public double RatioHeight
+        {
+            get
+            {
+                return ratioHeight;
+            }
+            set
+            {
+                double valid = value <= 0 || value > 1 ? 1 : value;
+                ratioHeight = valid;
+                WndHeight= _MonitorWidth * ratioHeight;
+                Trace.WriteLine($"RatioHeight = {ratioHeight}");
+            }
+        }
+
         public string WndBackground
         {
             get
@@ -111,6 +131,7 @@ namespace SortingStatus
                 Trace.WriteLine($"WndBackground = {wndBackground}");
             }
         }
+
         public string Show
         {
             get
@@ -124,6 +145,7 @@ namespace SortingStatus
                 Trace.WriteLine($"Show = {show}");
             }
         }
+
         public string Title
         {
             get
@@ -137,9 +159,10 @@ namespace SortingStatus
                 Trace.WriteLine($"Title = {title}");
             }
         }
+
         private volatile bool updlocation = false;
         
-        public int X
+        public double X
         {
             get
             {
@@ -150,7 +173,7 @@ namespace SortingStatus
                 if (updlocation == false)
                 {
                     updlocation = true;
-                    int valid = value >= _MonitorWidth || value <= 0 ? _MonitorWidth / 2 : value;
+                    double valid = value >= _MonitorWidth || value <= 0 ? _MonitorWidth / 2 : value;
                     x = valid;
                     NotifyPropertyChanged("X");
                     Trace.WriteLine($"X = {x}");
@@ -159,7 +182,8 @@ namespace SortingStatus
                 updlocation = false;
             }
         }
-        public int Y
+
+        public double Y
         {
             get
             {
@@ -170,7 +194,7 @@ namespace SortingStatus
                 if (updlocation == false)
                 {
                     updlocation = true;
-                    int valid = value >= _MonitorHeight || value <= 0 ? _MonitorHeight / 2 : value;
+                    double valid = value >= _MonitorHeight || value <= 0 ? _MonitorHeight / 2 : value;
                     y = valid;
                     NotifyPropertyChanged("Y");
                     Trace.WriteLine($"Y = {Y}");
