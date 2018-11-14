@@ -1,5 +1,6 @@
-C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Release\ProgressBar.exe
 C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Release\ProgressBar.exe.config
+C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Release\ProgressBar.exe
+C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Release\ProgressBar.pdb
 C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\MainWindow.g.cs
 C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\UCPrgBar.g.cs
 C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\App.g.cs
@@ -13,4 +14,4 @@ C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\SortingStatus.Properties.
 C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\ProgressBar.csproj.GenerateResource.Cache
 C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\ProgressBar.exe
 C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\ProgressBar.pdb
-C:\NetanelCodes\NetanelCodes\SortingStatus\bin\Release\ProgressBar.pdb
+C:\NetanelCodes\NetanelCodes\SortingStatus\obj\Release\ProgressBar.csprojResolveAssemblyReference.cache

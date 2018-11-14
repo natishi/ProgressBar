@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SortingStatus"
              mc:Ignorable="d" 
-             d:DesignHeight="{Binding WndHeight}" d:DesignWidth="{Binding WndWidth}" Cursor="Hand">
+             d:DesignHeight="{Binding WndHeight}" d:DesignWidth="{Binding WndWidth}" Cursor="Hand" Loaded="UserControl_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -21,27 +21,20 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
-                <!--ColumnDefinition Width="*"/-->
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="lblMinimize"   VerticalAlignment="Center" HorizontalAlignment="Right" Content="-" FontWeight="Bold"  Grid.Row="0" Grid.Column="0" Cursor="Hand" PreviewMouseDown="lblMinimize_PreviewMouseDown" Margin="0,0,5,0" FontSize="14"  ToolTip="מזער"></Label>
             <CheckBox x:Name="cbTopMost"   VerticalAlignment="Center" HorizontalAlignment="Right"  Grid.Row="0" Grid.Column="1" Cursor="Hand" Checked="cbTopMost_Checked" Unchecked="cbTopMost_Unchecked"  Margin="0,5,5,0"  ToolTip="נעילת מסך">נעילת מסך</CheckBox>
-            <!--Label x:Name="lblHeader" Content="{Binding WindowHeader}"  HorizontalAlignment="Center"   VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontWeight="Bold" FontSize="18"></-->
+            <Image x:Name="imgWarningIcon"  VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="3" ToolTip="יחס אינו חוקי" Margin="1,0,0,0" />
         </Grid>
-        <!--Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Viewbox VerticalAlignment="Top" Grid.Column="0" HorizontalAlignment="Center" Margin="5,0,0,0">
-                <Label x:Name="lblProgress" Content="{Binding Progress, Mode=TwoWay}"  Margin="0"  VerticalAlignment="Center"  ></Label>
-            </Viewbox>
-        </-->
         <Grid Margin="1,5,1,5" Grid.Row="2" >
-            <ProgressBar Name="progressBar" Margin="0"   Value="0" Foreground="{Binding PbColor, Mode=TwoWay}"  Minimum="0" />
+            <ProgressBar Name="progressBar" Margin="0"   Value="0"  Background="#bdbdbd" Foreground="{Binding PbColor, Mode=TwoWay}"  Minimum="0" />
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Run Text="{Binding WindowHeader}"></Run>
-                <Run Text="{Binding ElementName=progressBar, Path=Value, StringFormat={}{0:0}%}"></Run>      
-                <Run Text=" - "></Run>
-                <Run Text="{Binding Progress, Mode=TwoWay}" FontWeight="Bold"></Run>
+                <Run Text="{Binding WindowHeader}" Foreground="White"  FontSize="14" ></Run>
+                <Run Text="{Binding ElementName=progressBar, Path=Value, StringFormat={}{0:0}%}" FontSize="14" Foreground="White" ></Run>
+                <Run Text=" - " Foreground="White"></Run>
+                <Run Text="{Binding Progress, Mode=TwoWay}" FontWeight="Bold" Foreground="White" FontSize="14" ></Run>
             </TextBlock>
         </Grid>
     </Grid>

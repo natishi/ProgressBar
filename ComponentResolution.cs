@@ -25,7 +25,7 @@ namespace SortingStatus
             PbColor = ConfigurationManager.AppSettings["PbColor"];
             PbValue = 0;
             WindowHeader = ConfigurationManager.AppSettings["WindowHeader"];
-            Progress = $"0/?";
+            Progress = $"?/0";
             beep = Convert.ToBoolean(ConfigurationManager.AppSettings["BeepSound"]);
         }
 

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pbicon.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("complain.png")]
 
 

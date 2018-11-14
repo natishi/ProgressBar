@@ -6,6 +6,8 @@ using System.IO.Pipes;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace SortingStatus
 {
@@ -26,7 +28,8 @@ namespace SortingStatus
             backgroundWorker.ProgressChanged += ProgressChanged;
             backgroundWorker.DoWork += DoWork;
             backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
-            DataContext = cr;    
+            DataContext = cr;
+            
         }
 
         public void SetWndDataContext(WndProperties wp)
@@ -36,7 +39,9 @@ namespace SortingStatus
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            backgroundWorker.RunWorkerAsync();
+            InitWarningIcon();
+            if (!backgroundWorker.IsBusy)
+                backgroundWorker.RunWorkerAsync();
         }
 
         private  void DoWork(object sender, DoWorkEventArgs e)
@@ -59,9 +64,17 @@ namespace SortingStatus
                 wp.Y = Convert.ToInt16(location[1]);
                 cr.PbValue = (int)((pass / general) * 100);
                 backgroundWorker.ReportProgress(cr.PbValue);
-                cr.Progress = pass > general ? $"? {pass}/{general} ?" : $"{pass}/{general}";
+                cr.Progress = $"{pass}/{general}";
                 MinimizeToTray.SetToolTip(cr.Progress);
                 ShowMainWindow();
+                if (pass > general)
+                {
+                    ShowWarningIcon(true);
+                }
+                else
+                {
+                    ShowWarningIcon(false);
+                }
             }
             while (cr.PbValue != 100);
 
@@ -150,5 +163,34 @@ namespace SortingStatus
             MainWindow.main.Topmost = false;
             topMost = false;
         }
+        
+        private void InitWarningIcon()
+        {
+            System.Drawing.Icon icon = System.Drawing.SystemIcons.Warning;
+            BitmapSource bs = System.Windows.Interop.Imaging.CreateBitmapSourceFromHIcon(icon.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            imgWarningIcon.Source = bs;
+            imgWarningIcon.Visibility = Visibility.Collapsed;
+        }
+        private void ShowWarningIcon(bool show)
+        {
+            try
+            {
+                if (show)
+                {
+                    Dispatcher.Invoke(new Action(() => { imgWarningIcon.Visibility = Visibility.Visible; }), DispatcherPriority.ContextIdle);
+                }
+                else
+                {
+                    Dispatcher.Invoke(new Action(() => { imgWarningIcon.Visibility = Visibility.Collapsed; }), DispatcherPriority.ContextIdle);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLine($"Error in ShowWarningIcon: {e.Message}");
+            }
+
+        }
+
     }
 }
